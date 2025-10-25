@@ -29,6 +29,7 @@ public class MySceneManager : MonoBehaviour
 
     public void PlayAgain()
     {
+        ResetGameState();
         SceneManager.LoadScene("introScene");
 
     }
