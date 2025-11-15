@@ -14,7 +14,9 @@ public class ControlPlayer : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.y < -10f)
+        if (!GameManager.gameStarted) return;
+
+        if (transform.position.y < -10f)
         {
             gameManager.TriggerGameOver();
         }

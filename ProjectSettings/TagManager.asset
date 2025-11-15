@@ -6,6 +6,7 @@ TagManager:
   tags:
   - roofTop
   - mathZone
+  - winZone
   layers:
   - Default
   - TransparentFX

@@ -1,0 +1,47 @@
+easy|Which is a proposition? (For testing: Answer is btn 2)|x + 2|Sky is blue|Run!|1
+easy|Truth value of '2 < 5'? (For testing: Answer is btn 1)|True|False|Unknown|0
+easy|Symbol for AND? (For testing: Answer is btn 2)|∨|∧|→|1
+easy|Which set is finite? (For testing: Answer is btn 3)|Naturals|Integers|Primes < 20|2
+easy|Negation of 'p ∧ q'? (For testing: Answer is btn 2)|¬p ∨ ¬q|¬p ∧ ¬q|¬(p ∧ q)|2
+easy|Subset of {a, b}? (For testing: Answer is btn 2)|{a, b}|{a}|{a, b, c}|1
+easy|Binary of 2? (For testing: Answer is btn 1)|10|01|11|0
+easy|Which is a tautology? (For testing: Answer is btn 1)|p ∨ ¬p|p ∧ ¬p|¬p ∨ ¬q|0
+easy|Cardinality of {a, b, c}? (For testing: Answer is btn 2)|2|3|4|1
+easy|Which is a set? (For testing: Answer is btn 2)|(1,2)|{1,2}|1,2|1
+easy|Which is a relation? (For testing: Answer is btn 3)|x < y|x + y|x = y|2
+easy|Which is a function? (For testing: Answer is btn 1)|f(x) = x|f(x) = x²|f(x) = x mod 2|0
+easy|Which is a graph? (For testing: Answer is btn 1)|Tree|List|Stack|0
+easy|Which is a logic gate? (For testing: Answer is btn 1)|AND|ADD|MOD|0
+easy|Which is a binary digit? (For testing: Answer is btn 2)|2|1|3|1
+
+medium|Subsets of 4 elements?|8|16|24|1
+medium|Which is reflexive?|x < x|x = x|x ≠ x|1
+medium|Power set of {a,b,c}?|3|6|8|2
+medium|Which is symmetric?|x < y|x = y|x ≠ y|1
+medium|Which is transitive?|x < y|x = x|x = y|0
+medium|Which graph has no cycles?|Tree|Clique|Complete|0
+medium|Which is injective?|x²|2x|x mod 2|1
+medium|Binary of 5?|101|110|111|0
+medium|Which is surjective?|f(x) = x²|f(x) = x|f(x) = x mod 2|1
+medium|Which is bijective?|x²|x|x mod 2|1
+medium|Which is a tautology?|p ∨ ¬p|p ∧ ¬p|¬p ∨ ¬q|0
+medium|Which is contradiction?|p ∨ ¬p|p ∧ ¬p|p → q|1
+medium|Which is implication?|p ∧ q|p → q|p ∨ q|1
+medium|Which is disjunction?|p ∧ q|p ∨ q|p → q|1
+medium|Which is conjunction?|p ∧ q|p ∨ q|¬p|0
+
+hard|Permutations of 5 items?|120|60|24|0
+hard|Binary of 13?|1100|1101|1110|1
+hard|Which gate is XOR?|AND|XOR|OR|1
+hard|Which is a tree?|Cycle|Tree|Grid|1
+hard|Which is a clique?|All connected|No edges|One edge|0
+hard|GCD of 24 and 36?|6|12|18|1
+hard|LCM of 4 and 6?|12|24|18|0
+hard|Which is not a function?|x²|x mod 2|x = y|2
+hard|Which is a valid equivalence?|¬p ∨ q|p ∧ q|¬p ∧ ¬q|0
+hard|Which is a contradiction?|p ∧ ¬p|p ∨ ¬p|p → q|0
+hard|Which is a tautology?|p ∨ ¬p|p ∧ ¬p|¬p ∨ ¬q|0
+hard|Which is a valid implication?|p → q|p ∧ q|p ∨ q|0
+hard|Which is a valid converse?|q → p|p → q|¬p ∨ q|0
+hard|Which is a valid inverse?|¬p → ¬q|p → q|¬p ∨ q|0
+hard|Which is a valid contrapositive?|¬q → ¬p|p → q|¬p ∨ q|0

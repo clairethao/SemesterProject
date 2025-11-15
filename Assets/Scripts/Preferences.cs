@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +6,10 @@ using UnityEngine.UI;
 
 public class Preferences : MonoBehaviour
 {
-    public static string speed => PlayerPrefs.GetString("Speed", "Slow");
     public static string playerName => PlayerPrefs.GetString("PlayerName", "Guest");
+    public static string speed => PlayerPrefs.GetString("Speed", "Slow");
     public static string difficultyLvl => PlayerPrefs.GetString("DiffcultyLvl", "Easy");
+
     public InputField nameInput;
     public Dropdown speedDropdown;
     public Dropdown difficultyDropdown;
@@ -16,30 +18,12 @@ public class Preferences : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
     }
-    
+
     void Start()
     {
-        if (nameInput != null)
-        {
-            nameInput.text = PlayerPrefs.GetString("PlayerName", "Guest");
-            nameInput.onValueChanged.AddListener(UpdateName);
-        }
-
-        if (speedDropdown != null)
-        {
-            string speed = PlayerPrefs.GetString("Speed", "Slow");
-            int index = speedDropdown.options.FindIndex(option => option.text == speed);
-            speedDropdown.value = index >= 0 ? index : 1;
-            speedDropdown.onValueChanged.AddListener(delegate { SetSpeedDropdown(); });
-        }
-
-        if (difficultyDropdown != null)
-        {
-            string difficulty = PlayerPrefs.GetString("DiffcultyLvl", "Easy");
-            int index = difficultyDropdown.options.FindIndex(option => option.text == difficulty);
-            difficultyDropdown.value = index >= 0 ? index : 0; // Default to Easy
-            difficultyDropdown.onValueChanged.AddListener(delegate { SetDifficultyDropdown(); });
-        }
+        nameInput.onValueChanged.AddListener(UpdateName);
+        speedDropdown.onValueChanged.AddListener(delegate { SetSpeedDropdown(); });
+        difficultyDropdown.onValueChanged.AddListener(delegate { SetDifficultyDropdown(); });
     }
 
     void UpdateName(string newName)
@@ -52,15 +36,18 @@ public class Preferences : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-        void SetSpeedDropdown()
+    void SetSpeedDropdown()
     {
         string selectedSpeed = speedDropdown.options[speedDropdown.value].text;
-        PlayerPrefs.SetString("Speed", selectedSpeed);
+        if (selectedSpeed != "Game Speed")
+            PlayerPrefs.SetString("Speed", selectedSpeed);
+        else
+            PlayerPrefs.DeleteKey("Speed");
     }
 
     public static float GetSpeedValue()
     {
-        string speed = PlayerPrefs.GetString("Speed", "Medium");
+        string speed = PlayerPrefs.GetString("Speed", "Slow");
 
         return speed switch
         {
@@ -93,34 +80,32 @@ public class Preferences : MonoBehaviour
 
     public static List<MathQuestion> GetQuestions()
     {
-        string difficulty = PlayerPrefs.GetString("DiffcultyLvl", "Easy");
+        string difficulty = PlayerPrefs.GetString("DiffcultyLvl", "Easy").ToLower();
+        TextAsset questionFile = Resources.Load<TextAsset>("math_questions");
         List<MathQuestion> questions = new List<MathQuestion>();
 
-        if (difficulty == "Easy")
+        if (questionFile == null)
         {
-            questions.Add(new MathQuestion("2 + 2 = ?", "4", new List<string> { "3", "4" , "6"}));
-            questions.Add(new MathQuestion("5 - 3 = ?", "2", new List<string> { "2", "1", "3" }));
-            questions.Add(new MathQuestion("3 * 1 = ?", "3", new List<string> { "3", "1", "6" }));
-            questions.Add(new MathQuestion("10 / 2 = ?", "5", new List<string> { "4", "5", "6" }));
-            questions.Add(new MathQuestion("6 + 1 = ?", "7", new List<string> { "7", "8", "9" }));
-        }
-        else if (difficulty == "Medium")
-        {
-            questions.Add(new MathQuestion("12 % 5 = ?", "2", new List<string> { "2", "3", "1" }));
-            questions.Add(new MathQuestion("3^2 = ?", "9", new List<string> { "6", "9", "12" }));
-            questions.Add(new MathQuestion("15 / 3 = ?", "5", new List<string> { "3", "5", "6" }));
-            questions.Add(new MathQuestion("7 * 2 = ?", "14", new List<string> { "12", "14", "16" }));
-            questions.Add(new MathQuestion("18 - 9 = ?", "9", new List<string> { "8", "9", "10" }));
-        }
-        else if (difficulty == "Hard")
-        {
-            questions.Add(new MathQuestion("Sum of first 5 odd numbers?", "25", new List<string> { "15", "25", "35" }));
-            questions.Add(new MathQuestion("Subsets of a 3-element set?", "8", new List<string> { "6", "8", "9" }));
-            questions.Add(new MathQuestion("Binary of 13?", "1101", new List<string> { "1100", "1101", "1110" }));
-            questions.Add(new MathQuestion("What is 2^5?", "32", new List<string> { "16", "32", "64" }));
-            questions.Add(new MathQuestion("GCD of 24 and 36?", "12", new List<string> { "6", "12", "18" }));
+            Debug.LogError("Question file not found in Resources!");
+            return questions;
         }
 
+        string[] lines = questionFile.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Trim().Split('|');
+            if (parts.Length < 6) continue;
+
+            string entryDifficulty = parts[0].ToLower();
+            if (entryDifficulty != difficulty) continue;
+
+            string question = parts[1];
+            List<string> choices = new List<string> { parts[2], parts[3], parts[4] };
+            int correctIndex = int.Parse(parts[5]);
+
+            questions.Add(new MathQuestion(question, choices[correctIndex], choices));
+        }
         return questions;
     }
 

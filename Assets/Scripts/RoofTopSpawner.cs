@@ -22,7 +22,8 @@ public class RoofTopSpawner : MonoBehaviour
 
     void Start()
     {
-        numOfRoofTops = 16;
+        isPaused = true;
+        numOfRoofTops = 46;
         roofTopMoveSpeed = Preferences.GetSpeedValue();
         rooftops.Add(startingRoofTop);
         float currentX = startingRoofTop.transform.position.x + 5f;
@@ -44,12 +45,13 @@ public class RoofTopSpawner : MonoBehaviour
             currentX = spawnPosition.x + roofTopWidth;
 
             rooftopCount++;
-            if (rooftopCount % 3 == 0)
+            if ((rooftopCount + 1) % 3 == 0)
             {
                 rooftop.tag = "mathZone";
             }
 
         }
+        rooftops[rooftops.Count - 1].tag = "winZone";
     }
 
     public void UnpauseSpawner()

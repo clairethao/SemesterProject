@@ -34,6 +34,15 @@ public class MySceneManager : MonoBehaviour
 
     }
 
+    public void GoBack()
+    {
+        SceneManager.LoadScene("introScene");
+    }
+    public void Instructions()
+    {
+        SceneManager.LoadScene("instructionScene");
+    }
+
     public void Quit()
     {
         ResetGameState();

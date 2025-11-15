@@ -17,6 +17,11 @@ public class RooftopTrigger : MonoBehaviour
                 FindObjectOfType<RoofTopSpawner>().UnpauseSpawner();
                 mathZoneCanvas.SetActive(false);
             });
-            }
+        }
+        else if (gameObject.CompareTag("winZone"))
+        {
+            hasSpawned = true;
+            FindObjectOfType<GameManager>().TriggerWinScene();
+        }
     }
 }
