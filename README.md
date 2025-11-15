@@ -1,5 +1,5 @@
 Wampserver database setup:
-run wampserver64 and open phpmyadmin
+run wampserver64 and open phpmyadmin,
 create the database, name it roofjumper
 
 create the scores table:
@@ -10,5 +10,5 @@ CREATE TABLE scores (
     time INT UNSIGNED NOT NULL
 );
 
-create RoofJumperGame folder - wamp64/www/RoofJumperGame
+create RoofJumperGame folder - wamp64/www/RoofJumperGame,
 create 2 files - display.php and addscore.php (you can access the data inside by looking in the included PHP folder)
