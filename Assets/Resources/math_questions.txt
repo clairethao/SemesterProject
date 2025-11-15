@@ -2,7 +2,7 @@ easy|Which is a proposition? (For testing: Answer is btn 2)|x + 2|Sky is blue|Ru
 easy|Truth value of '2 < 5'? (For testing: Answer is btn 1)|True|False|Unknown|0
 easy|Symbol for AND? (For testing: Answer is btn 2)|∨|∧|→|1
 easy|Which set is finite? (For testing: Answer is btn 3)|Naturals|Integers|Primes < 20|2
-easy|Negation of 'p ∧ q'? (For testing: Answer is btn 2)|¬p ∨ ¬q|¬p ∧ ¬q|¬(p ∧ q)|2
+easy|Negation of 'p ∧ q'? (For testing: Answer is btn 3)|¬p ∨ ¬q|¬p ∧ ¬q|¬(p ∧ q)|2
 easy|Subset of {a, b}? (For testing: Answer is btn 2)|{a, b}|{a}|{a, b, c}|1
 easy|Binary of 2? (For testing: Answer is btn 1)|10|01|11|0
 easy|Which is a tautology? (For testing: Answer is btn 1)|p ∨ ¬p|p ∧ ¬p|¬p ∨ ¬q|0
