@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        gameStarted = false;
+        isGameOver = false;
+        elapsedTime = 0f;
         StartCoroutine(CountdownBeforeStart());
     }
 

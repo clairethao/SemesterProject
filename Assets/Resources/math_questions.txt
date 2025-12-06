@@ -1,18 +1,18 @@
-easy|Which is a proposition? (For testing: Answer is btn 2)|x + 2|Sky is blue|Run!|1
-easy|Truth value of '2 < 5'? (For testing: Answer is btn 1)|True|False|Unknown|0
-easy|Symbol for AND? (For testing: Answer is btn 2)|∨|∧|→|1
-easy|Which set is finite? (For testing: Answer is btn 3)|Naturals|Integers|Primes < 20|2
-easy|Negation of 'p ∧ q'? (For testing: Answer is btn 3)|¬p ∨ ¬q|¬p ∧ ¬q|¬(p ∧ q)|2
-easy|Subset of {a, b}? (For testing: Answer is btn 2)|{a, b}|{a}|{a, b, c}|1
-easy|Binary of 2? (For testing: Answer is btn 1)|10|01|11|0
-easy|Which is a tautology? (For testing: Answer is btn 1)|p ∨ ¬p|p ∧ ¬p|¬p ∨ ¬q|0
-easy|Cardinality of {a, b, c}? (For testing: Answer is btn 2)|2|3|4|1
-easy|Which is a set? (For testing: Answer is btn 2)|(1,2)|{1,2}|1,2|1
-easy|Which is a relation? (For testing: Answer is btn 3)|x < y|x + y|x = y|2
-easy|Which is a function? (For testing: Answer is btn 1)|f(x) = x|f(x) = x²|f(x) = x mod 2|0
-easy|Which is a graph? (For testing: Answer is btn 1)|Tree|List|Stack|0
-easy|Which is a logic gate? (For testing: Answer is btn 1)|AND|ADD|MOD|0
-easy|Which is a binary digit? (For testing: Answer is btn 2)|2|1|3|1
+easy|Which is a proposition?|x + 2|Sky is blue|Run!|1
+easy|Truth value of '2 < 5'?|True|False|Unknown|0
+easy|Symbol for AND?|∨|∧|→|1
+easy|Which set is finite?|Naturals|Integers|Primes < 20|2
+easy|Negation of 'p ∧ q'?|¬p ∨ ¬q|¬p ∧ ¬q|¬(p ∧ q)|2
+easy|Subset of {a, b}?|{a, b}|{a}|{a, b, c}|1
+easy|Binary of 2?|10|01|11|0
+easy|Which is a tautology?|p ∨ ¬p|p ∧ ¬p|¬p ∨ ¬q|0
+easy|Cardinality of {a, b, c}?|2|3|4|1
+easy|Which is a set?|(1,2)|{1,2}|1,2|1
+easy|Which is a relation?|x < y|x + y|x = y|2
+easy|Which is a function?|f(x) = x|f(x) = x²|f(x) = x mod 2|0
+easy|Which is a graph?|Tree|List|Stack|0
+easy|Which is a logic gate?|AND|ADD|MOD|0
+easy|Which is a binary digit?|2|1|3|1
 
 medium|Subsets of 4 elements?|8|16|24|1
 medium|Which is reflexive?|x < x|x = x|x ≠ x|1

@@ -97,7 +97,11 @@ public class TestSuite
         [TearDown]
         public void Teardown()
         {
-            Object.DestroyImmediate(scoreManagerObj);
+            if (ScoreManager.Instance != null)
+            {
+                Object.DestroyImmediate(ScoreManager.Instance.gameObject);
+                ScoreManager.Instance = null;
+            }
         }
 
         [Test]
@@ -132,6 +136,8 @@ public class TestSuite
             PlayerPrefs.Save();
 
             Object.DestroyImmediate(scoreManagerObj);
+            ScoreManager.Instance = null;
+
             scoreManagerObj = new GameObject("ScoreManager");
             scoreManager = scoreManagerObj.AddComponent<ScoreManager>();
 
