@@ -46,6 +46,10 @@ public class ControlPlayer : MonoBehaviour
         {
             isOnRoofTop = true;
         }
+        else if (coll.collider.CompareTag("winZone"))
+        {
+            gameManager.TriggerWinScene();
+        }
         else
         {
             isOnRoofTop = false;
@@ -56,5 +60,14 @@ public class ControlPlayer : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 300.0f));
         isOnRoofTop = false;
+    }
+
+    void FixedUpdate()
+    {
+        transform.rotation = Quaternion.Lerp(
+            transform.rotation,
+            Quaternion.identity,
+            Time.fixedDeltaTime * 5f
+        );
     }
 }

@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         while (!isGameOver)
         {
-            elapsedTime += Time.deltaTime;
+            elapsedTime += Time.unscaledDeltaTime;
             timerText.text = "Time: " + Mathf.FloorToInt(elapsedTime).ToString();
             yield return null;
         }
